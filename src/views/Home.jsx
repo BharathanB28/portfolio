@@ -11,7 +11,7 @@ const Home = ({id}) => {
   const darkMode = theme.state.darkMode;
 
   const handleResumeClick = () => {
-    const resumeUrl = 'https://drive.google.com/file/d/1y_9LtrzRmvzqbCmg_twnXdSTLjkv8tX3/view';
+    const resumeUrl = 'https://drive.google.com/file/d/1Haesh4W59j_7sEEp3hXxi_Fle0sgGNkC/view?usp=sharing';
     window.open(resumeUrl, '_blank'); 
   };
 
