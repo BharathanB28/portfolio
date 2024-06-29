@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { contactLinks } from "../constants";
 import { ThemeContext } from "../themeProvider";
 
-const Contact = () => {
+const Contact = ({id}) => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
   return (
     <div
-      id="contact"
+      id={id}
       className={
         darkMode
           ? "pt-24 md:h-screen text-black"
@@ -100,13 +100,7 @@ const Contact = () => {
             </form>
           </div>
           <div className="w-full flex flex-col md:items-end  mt-12 md:mt-6">
-            {/* <h1 className="text-3xl font-bold">Phone</h1>
-            <a
-              href="hello"
-              className="mb-12 mt-4 font-semibold text-blue-700 block uppercase"
-            >
-              +91 8285631499
-            </a> */}
+           
             <h1 className="text-3xl font-bold">Email</h1>
             <a
               href="hello"
@@ -128,10 +122,10 @@ const Contact = () => {
               {contactLinks.map((el) => (
                 <a
                   href={el.link}
-                  className="md:ml-6 md:mr-0 mr-6 cursor-pointer mt-4 hover:scale-125 flex flex-col justify-center items-center" target='_blank'
+                  className="md:ml-6 md:mr-0 mr-6 cursor-pointer mt-4 hover:scale-125 flex flex-col justify-center items-center" target='_blank' rel="noopener noreferrer"
                 >
                   <img alt="" src={el.url} />
-                  {/* <p className="text-md mt-2 hover:hidden">{el.name}</p> */}
+                  
                 </a>
               ))}
             </ul>
@@ -141,8 +135,8 @@ const Contact = () => {
       <div
         className={
           darkMode
-            ? "w-full bg-white text-black text-lg py-3 flex justify-center md:mt-20"
-            : "w-full bg-gray-900 text-white text-lg py-3 flex justify-center md:mt-20"
+            ? "w-full bg-white text-black text-lg py-3 flex justify-center md:mt-10"
+            : "w-full bg-gray-900 text-white text-lg py-3 flex justify-center md:mt-10"
         }
       >
         Made with

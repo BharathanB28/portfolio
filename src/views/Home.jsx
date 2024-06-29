@@ -6,18 +6,18 @@ import { motion } from "framer-motion";
 import cloud from "../assets/cloudBg.png";
 import cloudDark from "../assets/cloudDark.png";
 
-const Home = () => {
+const Home = ({id}) => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
 
   const handleResumeClick = () => {
-    const resumeUrl = 'https://drive.google.com/file/d/1n-uNFB8C1T7o7M-8zHpyCcHM9YQix14L/view?usp=sharing';
+    const resumeUrl = 'https://drive.google.com/file/d/1y_9LtrzRmvzqbCmg_twnXdSTLjkv8tX3/view';
     window.open(resumeUrl, '_blank'); 
   };
 
   return (
     <>
-      <div
+      <div id={id}
         style={
           darkMode
             ? { backgroundImage: `url('${cloud}')`, backgroundSize: "cover" }

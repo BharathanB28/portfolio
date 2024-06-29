@@ -22,12 +22,12 @@ function App() {
         {!loading ? (
           <div >
             <Navbar />
-            <Home />
-            <About />
-            <Projects />
-            <Skills />
-            <Education />
-            <Contact />
+            <Home id="home" />
+            <About id="about" />
+            <Projects id="projects" />
+            <Skills id="skills" />
+            <Education id="education" />
+            <Contact id="contact" />
           </div>
 
         ) : (

@@ -9,34 +9,16 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const darkMode = theme.state.darkMode;
   const links = [
-    {
-      name: "Home",
-      route: "/",
-    },
-    {
-      name: "About",
-      route: "about",
-    },
-    {
-      name: "Projects",
-      route: "projects",
-    },
-    {
-      name: "Skills",
-      route: "skills",
-    },
-    {
-      name: "Education",
-      route: "education",
-    },
-    {
-      name: "Contact",
-      route: "contact",
-    },
+    { name: "Home", route: "/" },
+    { name: "About", route: "about" },
+    { name: "Projects", route: "projects" },
+    { name: "Skills", route: "skills" },
+    { name: "Education", route: "education" },
+    { name: "Contact", route: "contact" },
   ];
 
   function toggleTheme() {
-    if (darkMode === true) {
+    if (darkMode) {
       theme.dispatch({ type: "LIGHTMODE" });
     } else {
       theme.dispatch({ type: "DARKMODE" });
@@ -65,19 +47,19 @@ const Navbar = () => {
               {`<BB/>`}
             </a>
           </div>
-          <div class="hidden justify-between items-center w-full md:flex md:w-auto ">
+          <div className="hidden justify-between items-center w-full md:flex md:w-auto">
             <ul
-              class={
-                "flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"
-              }
+              className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"
             >
-              {links.map((el) => (
-                <li className="cursor-pointer">
+              {links.map((el, index) => (
+                <li key={index} className="cursor-pointer">
                   <Link
                     to={el.route}
-                    activeClass={"text-white bg-blue-500"}
+                    activeClass="text-white bg-blue-500"               
                     spy={true}
                     smooth={true}
+                    offset={-70} 
+                    duration={500}
                     className={
                       darkMode
                         ? "block py-2 px-3 text-black hover:bg-blue-500 hover:text-white rounded-md"
@@ -94,13 +76,13 @@ const Navbar = () => {
                 <img
                   src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-sun-lighting-flaticons-flat-flat-icons.png"
                   className="w-6 ml-6 cursor-pointer hover:scale-1.50 block"
-                  alt=""
+                  alt="Sun Icon"
                 />
               ) : (
                 <img
                   src="https://img.icons8.com/external-prettycons-lineal-color-prettycons/49/000000/external-moon-astrology-and-symbology-prettycons-lineal-color-prettycons.png"
                   className="w-6 ml-6 cursor-pointer hover:scale-1.50 block"
-                  alt=""
+                  alt="Moon Icon"
                 />
               )}
             </div>
@@ -112,12 +94,12 @@ const Navbar = () => {
                 <img
                   src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-sun-lighting-flaticons-flat-flat-icons.png"
                   className="w-6 mr-4 cursor-pointer hover:scale-1.50 block"
-                  alt=""
+                  alt="Sun Icon"
                 />
               ) : (
                 <img
                   src="https://img.icons8.com/external-prettycons-lineal-color-prettycons/49/000000/external-moon-astrology-and-symbology-prettycons-lineal-color-prettycons.png"
-                  alt=""
+                  alt="Moon Icon"
                   className="w-6 mr-4 cursor-pointer hover:scale-1.50 block"
                 />
               )}
@@ -127,7 +109,7 @@ const Navbar = () => {
               toggled={toggle}
               size={22}
               duration={0.8}
-              distance={"lg"}
+              distance="lg"
               toggle={setToggle}
               color={darkMode ? "#000000" : "#ffffff"}
             />
@@ -147,11 +129,12 @@ const Navbar = () => {
                 : "bg-black py-2 px-2 md:p-0 z-50 fixed top-16 mt-2 rounded-lg shadow-lg right-2 block w-40"
             }
           >
-            <ul class="md:hidden md:flex-row md:space-y-8 md:mt-0 md:text-md md:font-medium">
-              {links.map((el) => (
+            <ul className="md:hidden md:flex-row md:space-y-8 md:mt-0 md:text-md md:font-medium">
+              {links.map((el, index) => (
                 <Link
+                  key={index}
                   to={el.route}
-                  activeClass={"text-white bg-blue-500"}
+                  activeClass="text-white bg-blue-500"
                   className={
                     darkMode
                       ? "hover:bg-blue-500 text-black block px-3 py-2 rounded-md text-base font-medium mt-1 hover:text-white"
@@ -159,6 +142,8 @@ const Navbar = () => {
                   }
                   spy={true}
                   smooth={true}
+                  offset={-70}
+                  duration={500}
                   onClick={() => setToggle(false)}
                 >
                   <li>{el.name}</li>
